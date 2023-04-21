@@ -5,7 +5,8 @@
     margin: 0;
     box-sizing: border-box;
     transition: all .2s;
-   
+    font-family: 'Georgia, serif'; 
+
 }
 
 html{
@@ -16,10 +17,11 @@ html{
 
 header
 {
-    background-color: #060b3d;
     height: 90px;
     padding-top: 0px;
+    background-image: linear-gradient(to bottom, #051087, #7802cd);
 }
+
 header img
 {
     float: left;
@@ -65,7 +67,7 @@ a
 
 nav a:hover
 {
-    background-color: #060b3d;
+    background-color: #1422be;
     color: rgb(255, 255, 255);
     opacity: 100%;
 }
@@ -231,36 +233,7 @@ canvas
 
 }
 
-.leftImg
-{
-    width: 70%;
-    float: left;
-    border: 5px solid rgb(255, 255, 255);
 
-}
-
-.leftImg img {
-    transition: transform 0.2s ease-in-out;
-  }
-
-
-.rightText
-{
-    width: 30%;
-    float: right;
-
-    color: rgb(35, 0, 67);
-    background-color: #ffffff;
-    background-size: 100%;
-
-    text-align: justify;
-    border: 5px solid #ffffff;
-    padding: 15px;
-
-    font-size: 18px;
-
-
-}
 
 /* Screen Split Code ends here */
 
@@ -498,10 +471,9 @@ p
 
 
 .container {
-    display: flex;
-    align-items: center;
     position: relative;
     width: 100%;
+    height: auto;
   }
   
   .leftImg {
@@ -509,45 +481,84 @@ p
     overflow: hidden;
     width: 100%;
     transition: all 0.5s;
-  }
-  
-  .leftImg img {
-    display: block;
-    width: 100%;
-    transition: all 0.5s;
-  }
-  
-  .leftImg:hover {
-    transform: translateX(-20%);
+
   }
   
   .rightText {
     position: absolute;
     top: 0;
-    right: -50%;
-    height: 100%;
+    right: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
     width: 50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    transition: all 0.5s;
+    transition: opacity 0.5s ease-in-out;
+
     padding: 20px;
-    color: #fff;
   }
   
   .container:hover .rightText {
-    opacity: 100%;
-    transform: translateX(-100%);
+    opacity: 1;
+  }
+  
+  .leftImg:hover + .rightText {
+    opacity: 1;
   }
 
-  .leftImg img,
-.rightText {
-  border: none;
+  .leftImg:hover {
+  transform: translateX(-20%);
+  }
+
+/*-----------------SignUp/Login------------------*/
+
+.signup
+{
+   padding: auto; 
 }
 
-.leftImg {
-    border: none;
+nav .signup
+{
+    float: right;;
+}
+
+.formcontainer
+{
+
+    align-items: center;
+    padding-top: 120px;
+
+    height: 100vh;
+        
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+
+    font-family: 'Georgia, serif'; 
+    font-size: 30px;
+    color: #ffffff;
+
+    background:rgba(255, 255, 255, 0.4);
+    background-image: linear-gradient(to bottom, #f306ff, #00ff08);
+
+    float: center;
+    
+    text-align: center;
+    font-weight: bold;
+    
+    -webkit-text-stroke: 0.3px rgb(0, 0, 0);
+
   }
+
+  .formcontainer
+  input
+  {
+    width: 200px;
+    position: center;
+  }
+/*-----------------SignUp/Login End------------------*/
