@@ -21,15 +21,24 @@ changeBackground(); // Call the function once to set the initial background imag
 
 setInterval(changeBackground, 2000); // Call the function every 2 seconds to change the background image
 
+///Bootstraping JS///
 
-const containers = document.querySelectorAll(".container");
-
-containers.forEach((container) => {
-  container.addEventListener("mouseover", () => {
-    container.classList.add("active");
-  });
-
-  container.addEventListener("mouseout", () => {
-    container.classList.remove("active");
-  });
+const tabs = document.querySelector(".tabs");
+const btns = document.querySelectorAll(".button");
+const articles = document.querySelectorAll(".content");
+tabs.addEventListener("click", function (e) {
+  const id = e.target.dataset.id;
+  if (id) {
+    // remove selected from other buttons
+    btns.forEach(function (btn) {
+      btn.classList.remove("live");
+    });
+    e.target.classList.add("live");
+    // hide other articles
+    articles.forEach(function (article) {
+      article.classList.remove("live");
+    });
+    const element = document.getElementById(id);
+    element.classList.add("live");
+  }
 });
