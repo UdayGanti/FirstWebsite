@@ -16,5 +16,5 @@ setInterval(() => {
   index = (index + 1) % images.length;
 }, 2000); // 2 seconds
 
-changeBackground(); // Call the function once to set the initial background image
-setInterval(changeBackground, 2000); // Call the function every 2 seconds to change the background image
+changeBackground();
+setInterval(changeBackground, 4000);

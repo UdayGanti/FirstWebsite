@@ -3,10 +3,19 @@
   <head>
     <title>Sign Up Form</title>
     <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   </head>
   <body>
 
     <div id="bg-image"></div>
+
+    <style>
+      body{
+      background-image:url("../img/back1.jpg");
+      background-size: cover;
+      }
+    </style>
 
     <header>
       <a href="../index.html">
@@ -22,28 +31,91 @@
       <a href="../html/Login.html" class="signup">Login</a>
     </nav>
 
-    <div class="formcontainer">
+    <br>
+    <br>
+    <script>     
+      
+      function validation(event) {
 
-      <h1>Sign Up</h1>
+        console.log("here")
+        event.preventDefault();
+    
+        var name = document.getElementById("name").value;
+        var name = document.getElementById("lastName").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var phone = document.getElementById("phone").value;
+    
+        var errorMessages = [];
+        const pattern = /^[a-zA-Z]*$/;
+
+        console.log(name.length)
+        if (name === "" || name.length<6 || pattern.test(name)) {
+          errorMessages.push("Please enter valid name");
+        }
+    
+        if (email === "") {
+          errorMessages.push("Please enter your email");
+        } else if (!emailIsValid(email)) {
+          errorMessages.push("Please enter a valid email address");
+        }
+    
+        if (password === "") {
+          errorMessages.push("Please enter your password");
+        } else if (password.length < 8) {
+          errorMessages.push("Password should be at least 8 characters long");
+        }
+    
+        if (phone === "") {
+          errorMessages.push("Please enter your phone number");
+        } else if (!phoneIsValid(phone)) {
+          errorMessages.push("Please enter a valid phone number");
+        }
+    
+        if (errorMessages.length > 0) {
+          var errorMessageContainer = document.getElementById("errorMessages");
+          errorMessageContainer.innerHTML = "";
+          for (var i = 0; i < errorMessages.length; i++) { // Added closing brace
+            errorMessageContainer.innerHTML += "<p>" + errorMessages[i] + "</p>";
+          }
+        }
+      }
+
+      // document.getElementById("signupForm").addEventListener("submit", validation);
+
+    </script>
+
+    <div class="signup-container">
+
+      <h1>SIGN UP</h1>
+   
 
       <br>
 
-      <form action="" method="post">
-        <label for="firstname">First Name:</label>
-        <input type="text" id="firstname" name="firstname"><br><br>
-        <label for="lastname">Last Name:</label>
-        <input type="text" id="lastname" name="lastname"><br><br>
+      <form id="signupForm" onsubmit="validation(event)">
+        <label for="name">First Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your First name"><br>
+        <br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" placeholder="Enter your Last name"><br>
+
+        <br>
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email"><br>
+        <br>
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password"><br><br>
-        <input type="submit" value="Sign Up">
+        <input type="password" id="password" name="password" placeholder="Enter your password"><br>
+        <br>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter your phone number"><br>
+        <br>
+        <button type="submit">Sign Up</button>
       </form>
+      <div id="errorMessages"></div>
+      </div>
       
       <br>
       
-      <p>Already have an account? <a href="login.html">Login here</a>.</p>
-
     </div>
 
   </body>
